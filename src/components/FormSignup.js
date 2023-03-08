@@ -84,7 +84,6 @@ const Field = styled.input`
         color: #9F9F9F;
     }
 `
-
 const SignupButton = styled.button`
     font-family: 'Oswald', sans-serif;
     font-size: 27px;

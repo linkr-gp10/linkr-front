@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import axios from "axios";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useState, useContext } from "react";
+import { AuthContext } from "../contexts/AuthContext";
+import { UserInfoContext } from "../contexts/UserContext";
 
 export default function FormSignin() {
 
@@ -10,12 +13,24 @@ export default function FormSignin() {
     });
 
     const [disabled, setDisabled] = useState(false);
+    const { setUserToken } = useContext(AuthContext);
+    const { setUserInfo } = useContext(UserInfoContext);
+    const navigate = useNavigate();
 
     function handleSignup(event) {
         const signin = axios.post('https://api-linkr-09wl.onrender.com/signin', form);
         event.preventDefault();
         setDisabled(true);
-        signin.then(completeSignin);
+        signin.then((res) => {
+            if (!localStorage.getItem("userToken")) {
+                setUserToken(res.data);
+                localStorage.setItem("userToken", res.data);
+            }
+            userInfo(res.data);
+            console.log("OK!");
+            setDisabled(false);
+            navigate("/timeline")
+        });
         signin.catch(checkError);
     };
 
@@ -26,9 +41,17 @@ export default function FormSignin() {
         })
     }
 
-    function completeSignin() {
-        console.log("OK!");
-        setDisabled(false);
+    function userInfo(token) {
+        const config = {
+            headers: { Authorization: `Bearer ${token}`}
+        };
+        const promise = axios.get('https://api-linkr-09wl.onrender.com/signin', config);
+        promise.then((res) => {
+            setUserInfo(res.data);
+        });
+        promise.catch((err) => {
+            console.log(err.response.data);
+        })
     }
 
     function checkError(error) {
