@@ -18,7 +18,7 @@ export default function FormSignup() {
         event.preventDefault();
         setDisabled(true);
         signup.then(completeSignup);
-        signup.catch(checkError(checkError));
+        signup.catch(checkError);
     };
 
     function handleForm(e) {
@@ -34,8 +34,17 @@ export default function FormSignup() {
     }
 
     function checkError(error) {
-        console.log("Status code: " + error.response.status);
-        console.log("Error: " + error.response.data);
+        if (error.response.status === 422) {
+            alert("All fields are required.");
+        } else if (error.response.status === 409) {
+            alert("This e-mail address is already registered.")
+            setForm({
+                email: '',
+                password: '',
+                username: '',
+                imageUrl: '' 
+            })
+        }
         setDisabled(false);
     }
 

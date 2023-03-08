@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import FormSignup from "../components/FormSignup";
+import { Link } from "react-router-dom";
 
 export default function Signup() {
     return (
@@ -12,6 +13,7 @@ export default function Signup() {
             </ContainerBrand>
             <ContainerInput>
                 <FormSignup />
+                <StyledLink to={'/'}>Switch back to log in</StyledLink>
             </ContainerInput>
         </Container>
     )
@@ -31,7 +33,8 @@ const ContainerBrand = styled.div`
     font-weight: 700;
     padding-left: 10%;
     padding-top: 15%;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    box-shadow: 4px 0px 4px rgba(0, 0, 0, 0.25);
+    z-index: 3;
 `
 
 const ContainerLetters = styled.div`
@@ -53,7 +56,19 @@ const ContainerLetters = styled.div`
 
 const ContainerInput = styled.div`
     display:flex;
+    flex-direction: column;
+    align-items: center;
     background: #333333;
     width: 40%;
     justify-content: center;
+`
+
+const StyledLink = styled(Link)`
+    font-family: 'Lato', sans-serif;
+    font-size: 20x;
+    font-weight: 400;
+    color: #ffffff;
+    ::visited {
+        color: #ffffff;
+    }
 `
