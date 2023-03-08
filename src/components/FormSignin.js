@@ -1,27 +1,22 @@
 import styled from "styled-components";
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
-export default function FormSignup() {
+export default function FormSignin() {
 
     const [form, setForm] = useState({
         email: '',
-        password: '',
-        username: '',
-        imageUrl: ''
+        password: ''
     });
 
     const [disabled, setDisabled] = useState(false);
 
-    const navigate = useNavigate();
-
     function handleSignup(event) {
-        const signup = axios.post('https://api-linkr-09wl.onrender.com/signup', form);
+        const signin = axios.post('https://api-linkr-09wl.onrender.com/signin', form);
         event.preventDefault();
         setDisabled(true);
-        signup.then(completeSignup);
-        signup.catch(checkError);
+        signin.then(completeSignin);
+        signin.catch(checkError);
     };
 
     function handleForm(e) {
@@ -31,22 +26,19 @@ export default function FormSignup() {
         })
     }
 
-    function completeSignup() {
+    function completeSignin() {
         console.log("OK!");
         setDisabled(false);
-        navigate("/");
     }
 
     function checkError(error) {
         if (error.response.status === 422) {
             alert("All fields are required.");
-        } else if (error.response.status === 409) {
-            alert("This e-mail address is already registered.")
+        } else if (error.response.status === 403) {
+            alert("Wrong e-mail and/or password.")
             setForm({
                 email: '',
-                password: '',
-                username: '',
-                imageUrl: '' 
+                password: ''
             })
         }
         setDisabled(false);
@@ -56,8 +48,6 @@ export default function FormSignup() {
         <Form onSubmit={handleSignup}>
             <Field type="text" name="email" placeholder="e-mail" value={form.email} onChange={handleForm} disabled={disabled} />
             <Field type="password" name="password" placeholder="password" value={form.password} onChange={handleForm} disabled={disabled} />
-            <Field type="text" name="username" placeholder="username" value={form.username} onChange={handleForm} disabled={disabled} />
-            <Field type="text" name="imageUrl" placeholder="picture url" value={form.imageUrl} onChange={handleForm} disabled={disabled} />
             <SignupButton disabled={disabled}>Sign Up</SignupButton>
         </Form>
     )
