@@ -1,5 +1,5 @@
-import axios from "axios";
 import styled from "styled-components";
+import FormSignup from "../components/FormSignup";
 
 export default function Signup() {
     return (
@@ -11,12 +11,7 @@ export default function Signup() {
                 </ContainerLetters>
             </ContainerBrand>
             <ContainerInput>
-                e-mail
-                password
-                username
-                picture url
-                sign up
-                switch back to log in
+                <FormSignup />
             </ContainerInput>
         </Container>
     )
@@ -25,8 +20,8 @@ export default function Signup() {
 
 const Container = styled.div`
     display: flex;
+    height: 100vh;
     width: 100vw;
-    height: 100vh
 `
 
 const ContainerBrand = styled.div`
@@ -36,7 +31,7 @@ const ContainerBrand = styled.div`
     font-weight: 700;
     padding-left: 10%;
     padding-top: 15%;
-
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
 const ContainerLetters = styled.div`
@@ -57,6 +52,8 @@ const ContainerLetters = styled.div`
 `
 
 const ContainerInput = styled.div`
+    display:flex;
     background: #333333;
     width: 40%;
+    justify-content: center;
 `
