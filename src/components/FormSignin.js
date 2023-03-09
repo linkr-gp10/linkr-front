@@ -17,7 +17,7 @@ export default function FormSignin() {
     const { setUserInfo } = useContext(UserInfoContext);
     const navigate = useNavigate();
 
-    function handleSignup(event) {
+    function handleSignin(event) {
         const signin = axios.post('https://api-linkr-09wl.onrender.com/signin', form);
         event.preventDefault();
         setDisabled(true);
@@ -68,10 +68,10 @@ export default function FormSignin() {
     }
 
     return (
-        <Form onSubmit={handleSignup}>
+        <Form onSubmit={handleSignin}>
             <Field type="text" name="email" placeholder="e-mail" value={form.email} onChange={handleForm} disabled={disabled} />
             <Field type="password" name="password" placeholder="password" value={form.password} onChange={handleForm} disabled={disabled} />
-            <SignupButton disabled={disabled}>Sign Up</SignupButton>
+            <SigninButton disabled={disabled}>Log In</SigninButton>
         </Form>
     )
 }
@@ -98,7 +98,7 @@ const Field = styled.input`
     }
 `
 
-const SignupButton = styled.button`
+const SigninButton = styled.button`
     font-family: 'Oswald', sans-serif;
     font-size: 27px;
     background: #1877F2;

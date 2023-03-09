@@ -1,11 +1,15 @@
 import styled from "styled-components";
+import { UserInfoContext } from "../contexts/UserContext";
+import { useContext } from "react";
 
 export default function Header() {
+    const { userInfo } = useContext(UserInfoContext);
+
     return (
         <Container>
             <h1>linkr</h1>
             <ImageContainer>
-                <UserImage src='https://www.lance.com.br/files/article_main/uploads/2023/02/24/63f968b6a4d31.jpeg'/>
+                <UserImage src={userInfo?.imageUrl}/>
             </ImageContainer>
         </Container>
     )
