@@ -7,10 +7,15 @@ const Container = styled.div`
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 16px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 5px;
+    form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 5px;
+    }
 `
 
 const Title = styled.p`
@@ -41,4 +46,14 @@ const DescriptionInput = styled.input`
     margin: 2px;
 `
 
-export { Container, Title, UrlInput, DescriptionInput }
+const PublishButton = styled.button`
+    width: 112px;
+    height: 31px;
+    background-color: #1877F2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    margin: 5px;
+`
+
+export { Container, Title, UrlInput, DescriptionInput, PublishButton }

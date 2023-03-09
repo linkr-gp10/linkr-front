@@ -1,9 +1,16 @@
 import { Container, UserName, Description, UrlThumb } from "./style"
-export default function PostCard(){
-    return(
+import { ReactTagify } from "react-tagify";
+
+export default function PostCard() {
+
+    return (
         <Container>
             <UserName>Juvenal</UserName>
-            <Description>Llalalala</Description>
+            <ReactTagify
+                colors={"white"}
+                tagClicked={(tag) => alert(tag)}>
+                <Description>Llalalala #javascript</Description>
+            </ReactTagify>
             <UrlThumb></UrlThumb>
         </Container>
     )

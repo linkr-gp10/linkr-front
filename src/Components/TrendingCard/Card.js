@@ -1,7 +1,7 @@
 import axios from "axios";
-import { Hashtag, List, Line, Container } from "./style";
+import { Hashtag, List, Line, Container, Title } from "./style";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";	
 
 // async function getTrending() {
 // 	const { data } = await axios.get("/trending");
@@ -17,7 +17,7 @@ export default function Card() {
 
 	return (
 		<Container>
-			<h1>trending</h1>
+			<Title>trending</Title>
 			<Line />
 			<List>
 				{trending.map((item) => (

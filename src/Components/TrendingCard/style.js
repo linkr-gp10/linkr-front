@@ -7,15 +7,16 @@ const Container = styled.div`
 	min-height: 400px;
 	background: #171717;
 	border-radius: 16px;
-	> h1 {
-        font-family: 'Oswald', sans-serif;
-		font-weight: 700;
-		font-size: 27px;
-		line-height: 40px;
-		color: #ffffff;
-        margin: 16px 0 12px 16px;
-	}
 `;
+
+const Title = styled.p`
+    font-family: 'Oswald', sans-serif;
+	font-weight: 700;
+	font-size: 27px;
+	line-height: 40px;
+	color: #ffffff;
+    margin: 16px 0 12px 16px;
+`
 
 const Line = styled.div`
 	width: 100%;
@@ -42,4 +43,4 @@ const Hashtag = styled.li`
 	}
 `;
 
-export {Container, Line, List, Hashtag}
+export { Container, Line, List, Hashtag, Title }
