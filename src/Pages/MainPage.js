@@ -10,10 +10,10 @@ export default function MainPage(){
 
     useEffect(() => {
         getPosts();
-        // const interval = setInterval(() => {
-        //     getPosts();
-        // }, 5000);
-        // return () => clearInterval(interval);
+        const interval = setInterval(() => {
+            getPosts();
+        }, 5000);
+        return () => clearInterval(interval);
     }, []);
 
     const getPosts = async () => {
@@ -21,7 +21,7 @@ export default function MainPage(){
             const { data } = await api.get('/timeline')
             setPosts(data)
         } catch (error) {
-            //alert("Ocorreu um erro, por favor recarregue a página!")
+            alert("Ocorreu um erro, por favor recarregue a página!")
         }
     }
 

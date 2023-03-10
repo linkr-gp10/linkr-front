@@ -31,12 +31,12 @@ export default function NewPostCard() {
     }
 
     return (
-        <Container>
+        <Container data-test="publish-box">
             <form onSubmit={handleChange}>
                 <Title>What are you going to share today?</Title>
-                <UrlInput placeholder="http://..." onChange={e => setLink(e.target.value)} value={link} readOnly={loading} />
-                <DescriptionInput placeholder="Awesome article about #javascript..." onChange={e => setDescription(e.target.value)} value={description} readOnly={loading} />
-                <PublishButton disabled={loading}>{loading ? "Publishing..." : "Publish"}</PublishButton>
+                <UrlInput data-test="link" placeholder="http://..." onChange={e => setLink(e.target.value)} value={link} readOnly={loading} />
+                <DescriptionInput data-test="description" placeholder="Awesome article about #javascript..." onChange={e => setDescription(e.target.value)} value={description} readOnly={loading} />
+                <PublishButton data-test="publish-btn" disabled={loading}>{loading ? "Publishing..." : "Publish"}</PublishButton>
             </form>
         </Container>
     )
