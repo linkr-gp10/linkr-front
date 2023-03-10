@@ -38,6 +38,7 @@ const Container = styled.div`
     justify-content: space-between;
     align-items: center;
     height: 8vh;
+    width: 100vw;
     h1 {
         font-family: 'Passion One', cursive;
         font-size: 49px;
@@ -50,7 +51,6 @@ const RightContainer = styled.div`
     width: 10%;
     display: flex;
     flex-direction: column;
-    margin-right: 1vw;
 `
 
 const DropdownDiv = styled.div`

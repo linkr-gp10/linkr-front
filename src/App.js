@@ -3,6 +3,8 @@ import GlobalStyle from "./GlobalStyle";
 import Signin from "./pages/Signin";
 import Signup from "./pages/Signup";
 import Timeline from "./pages/Timeline";
+import MainPage from "./Pages/MainPage";
+import HashtagPage from "./Pages/HashtagPage";
 
 function App() {
   return (

@@ -16,8 +16,9 @@ export default function Timeline() {
 
 const Container = styled.div`
     display: flex;
-    height: 92vh;
+    height: auto;
     width: auto;
+    overflow: auto;
     background: #333333;
 `
 
