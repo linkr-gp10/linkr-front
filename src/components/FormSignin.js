@@ -48,6 +48,7 @@ export default function FormSignin() {
         const promise = axios.get('https://api-linkr-09wl.onrender.com/signin', config);
         promise.then((res) => {
             setUserInfo(res.data);
+            localStorage.setItem("userInfo", JSON.stringify(res.data));
         });
         promise.catch((err) => {
             console.log(err.response.data);
