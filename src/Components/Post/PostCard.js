@@ -4,14 +4,14 @@ import { ReactTagify } from "react-tagify";
 export default function PostCard() {
 
     return (
-        <Container>
-            <UserName>Juvenal</UserName>
+        <Container data-test="post">
+            <UserName data-test="username">Juvenal</UserName>
             <ReactTagify
                 colors={"white"}
                 tagClicked={(tag) => alert(tag)}>
-                <Description>Llalalala #javascript</Description>
+                <Description data-test="description">Llalalala #javascript</Description>
             </ReactTagify>
-            <UrlThumb></UrlThumb>
+            <UrlThumb data-test="link"></UrlThumb>
         </Container>
     )
 }
