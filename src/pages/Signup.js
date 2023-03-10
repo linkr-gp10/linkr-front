@@ -13,7 +13,7 @@ export default function Signup() {
             </ContainerBrand>
             <ContainerInput>
                 <FormSignup />
-                <StyledLink to={'/'}>Switch back to log in</StyledLink>
+                <StyledLink to={'/'} data-test="login-link">Switch back to log in</StyledLink>
             </ContainerInput>
         </Container>
     )

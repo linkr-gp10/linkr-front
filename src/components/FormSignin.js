@@ -70,9 +70,9 @@ export default function FormSignin() {
 
     return (
         <Form onSubmit={handleSignin}>
-            <Field type="text" name="email" placeholder="e-mail" value={form.email} onChange={handleForm} disabled={disabled} />
-            <Field type="password" name="password" placeholder="password" value={form.password} onChange={handleForm} disabled={disabled} />
-            <SigninButton disabled={disabled}>Log In</SigninButton>
+            <Field type="text" name="email" data-test="email" placeholder="e-mail" value={form.email} onChange={handleForm} disabled={disabled}  />
+            <Field type="password" name="password" data-test="password" placeholder="password" value={form.password} onChange={handleForm} disabled={disabled} />
+            <SigninButton disabled={disabled} data-test="login-btn">Log In</SigninButton>
         </Form>
     )
 }

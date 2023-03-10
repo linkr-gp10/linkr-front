@@ -54,11 +54,11 @@ export default function FormSignup() {
 
     return (
         <Form onSubmit={handleSignup}>
-            <Field type="text" name="email" placeholder="e-mail" value={form.email} onChange={handleForm} disabled={disabled} />
-            <Field type="password" name="password" placeholder="password" value={form.password} onChange={handleForm} disabled={disabled} />
-            <Field type="text" name="username" placeholder="username" value={form.username} onChange={handleForm} disabled={disabled} />
-            <Field type="text" name="imageUrl" placeholder="picture url" value={form.imageUrl} onChange={handleForm} disabled={disabled} />
-            <SignupButton disabled={disabled}>Sign Up</SignupButton>
+            <Field type="text" name="email" data-test="email" placeholder="e-mail" value={form.email} onChange={handleForm} disabled={disabled} />
+            <Field type="password" name="password" data-test="password" placeholder="password" value={form.password} onChange={handleForm} disabled={disabled} />
+            <Field type="text" name="username" data-test="username" placeholder="username" value={form.username} onChange={handleForm} disabled={disabled} />
+            <Field type="text" name="imageUrl" data-test="picture-url" placeholder="picture url" value={form.imageUrl} onChange={handleForm} disabled={disabled} />
+            <SignupButton disabled={disabled} data-test="sign-up-btn">Sign Up</SignupButton>
         </Form>
     )
 }

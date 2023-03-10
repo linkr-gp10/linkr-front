@@ -16,13 +16,13 @@ export default function Header() {
                 <DropdownButton onClick={() => setClicked(!clicked)}>
                     <BsChevronDown />
                     <ImageContainer>
-                        <UserImage src={userInfo?.imageUrl}/>
+                        <UserImage src={userInfo?.imageUrl} data-test="avatar"/>
                     </ImageContainer>
                 </DropdownButton>
                 {clicked ? (
                     <DropdownDiv>
-                        <DropdownMenu>
-                            <LogoutButton>Logout</LogoutButton>
+                        <DropdownMenu data-test="menu">
+                            <LogoutButton data-test="logout">Logout</LogoutButton>
                         </DropdownMenu>
                     </DropdownDiv>
                 ) : null}

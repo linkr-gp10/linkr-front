@@ -13,7 +13,7 @@ export default function Signin() {
             </ContainerBrand>
             <ContainerInput>
                 <FormSignin />
-                <StyledLink to={'/signup'}>First time? Create an account!</StyledLink>
+                <StyledLink to={'/signup'} data-test="sign-up-link">First time? Create an account!</StyledLink>
             </ContainerInput>
         </Container>
     )
